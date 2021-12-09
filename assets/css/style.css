@@ -705,9 +705,17 @@ Slider
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.slide:nth-child(3) {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(../images/England-Cornwall-Boscastle-Harbour-sea-coast-clouds-sunset_1920x1200.jpeg) center/cover no-repeat;
+.slide:nth-child(3) h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.slide:nth-child(4) h1 {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
 }
 .btn-container {
   display: flex;
