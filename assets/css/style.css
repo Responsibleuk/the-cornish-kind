@@ -754,3 +754,422 @@ Slider
     height: 65vh;
   }
 }
+
+
+/*
+=============== 
+Blog Carousel
+===============
+*/
+
+/* Parent wrapper to carousel. Width can be changed as needed. */
+.carousel-wrapper {
+  overflow: hidden;
+  width: 90%;
+  margin: auto;
+}
+
+/* Apply 'border-box' to 'box-sizing' so border and padding is included in the width and height. */
+.carousel-wrapper * {
+  box-sizing: border-box;
+}
+
+/* We'll be using the 'transform' property to move the carousel's items, so setting the 'transform-style' to 'preserve-3d' will make sure our nested elements are rendered properly in the 3D space. */
+.carousel {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* By default we're hiding items (except the initial one) until the JS initiates. Elements are absolutely positioned with a width of 100% (as we're styling for mobile first), letting the content's height dictate the height of the carousel. Our magic property here for all our animation needs is 'transition', taking the properties we wish to animate 'transform' and 'opacity', along with the length of time in seconds. */
+.carousel__photo {
+  opacity: 0;
+  position: absolute;
+  top:0;
+  width: 100%;
+  margin: auto;
+  padding: 1rem 4rem;
+  z-index: 100;
+  transition: transform .5s, opacity .5s, z-index .5s;
+}
+
+/* Display the initial item and bring it to the front using 'z-index'. These styles also apply to the 'active' item. */
+.carousel__photo.initial,
+.carousel__photo.active {
+  opacity: 1;
+  position: relative;
+  z-index: 900;
+}
+
+/* Set 'z-index' to sit behind our '.active' item. */
+.carousel__photo.prev,
+.carousel__photo.next {
+  z-index: 800;
+}
+
+/* Translate previous item to the left */
+.carousel__photo.prev {
+  transform: translateX(-100%);
+}
+
+/* Translate next item to the right */
+.carousel__photo.next {
+  transform: translateX(100%);
+}
+
+/* Style navigation buttons to sit in the middle, either side of the carousel. */
+.carousel__button--prev,
+.carousel__button--next {
+  position: absolute;
+  top:50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: #FFF;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  cursor: pointer; 
+  z-index: 1001; /* Sit on top of everything */
+  border:1px solid black;
+/*  opacity: 0;  Hide buttons until carousel is initialised 
+  transition:opacity 1s;*/
+}
+
+.carousel__button--prev {
+  left:0;
+}
+
+.carousel__button--next {
+  right:0;
+}
+
+/* Use pseudo elements to insert arrows inside of navigation buttons */
+.carousel__button--prev::after,
+.carousel__button--next::after {
+  content: " ";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 54%;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.carousel__button--next::after {
+  left: 47%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/*
+=============== 
+Blog Body
+===============
+*/
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin transition {
+  -moz-transition:    0.3s ease-in-out all;
+  -o-transition:      0.3s ease-in-out all;
+  -webkit-transition: 0.3s ease-in-out all;
+  transition:         0.3s ease-in-out all;
+}
+
+@mixin filter($filter) {
+ -webkit-filter: $filter;
+ -moz-filter: $filter;
+ -o-filter: $filter;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,900);
+
+$sm: 480px;
+$md: 768px;
+$lg: 992px;
+
+
+ .bounce {
+    -webkit-animation-name: bounce;
+    animation-name: bounce;
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+ }
+ 
+ .animated {
+   -webkit-animation-duration: 2s;
+   animation-duration: 2s;
+   -webkit-animation-fill-mode: both;
+   animation-fill-mode: both;
+ }
+}
+
+.section {
+ width: 100%;
+ position: relative;
+ //height: 300px;
+ 
+ .left, .middle, .right {
+    width:100%;
+    display: block;
+    color: #fff;
+    box-sizing: border-box;
+    left: 0;
+    padding: 30px;
+    text-align:center;
+    overflow:hidden;
+    
+    @include transition;
+    
+    .content {
+       @media (min-width: $sm) {
+          @include vertical-align();
+       }
+    }
+    
+    @media (min-width: $sm) {
+       width: 50%;
+       font-size:0.9em;
+       padding: 10px;
+       left: 0;
+       float: left;
+       position: absolute;
+    }
+    
+    @media (min-width: $md) {
+       width: 33.33333%;
+       left: 33.33%;
+       padding: 10px;
+    }
+    
+    @media (min-width: $lg) {
+       padding: 30px;
+       font-size: 1em;
+    }
+ }
+ 
+ &.animate {
+    .left {
+       left:0;
+       
+       @media (min-width: $sm) {
+          left: 50%;
+       }
+       
+       @media (min-width: $md) {
+          left:0;
+       }
+    }
+    
+    .right {
+       left:0;
+       
+       @media (min-width: $sm) {
+          left: 50%;
+       }
+       
+       @media (min-width: $md) {
+          left:66.66%;
+       }
+    }
+    
+    
+ }
+ 
+ .title {
+    background: tomato;
+    
+    h2 {
+       margin-top:0;
+    }
+    
+    p {
+       line-height:1.55em;
+       margin-bottom: 0.75em;
+    }
+    
+    .btn-primary {
+       color: #fff;
+       background: darken(tomato, 10%);
+       padding: 10px;
+       text-decoration:none;
+       border-radius: 3px;
+       display:inline-block;
+       @include transition;
+       
+       &:hover {
+          background: darken(tomato, 15%);
+       }
+       
+    }
+ }
+ 
+ .tiles {
+    padding:0;
+    background: #fff;
+    clear:both;
+    display:none;
+    float:none;
+    
+    img {
+       width:50%;
+       float:left;
+       height:auto;
+       opacity: 0.7;
+       @include transition;
+       @include filter(grayscale(100%)); 
+       
+       
+       &:hover {
+          opacity:1;
+          @include filter(grayscale(0%));
+       }
+    }
+    
+    @media (min-width: $md) {
+         display:block;
+    }
+ }
+ 
+ .middle {
+    background: slategray;
+    z-index: 2;
+    padding:0;
+    
+    img {
+       width: 100%;
+       height: auto;
+       display:block;
+    }
+ }
+}
+
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+  40% {-webkit-transform: translateY(-20px);}
+  60% {-webkit-transform: translateY(-10px);}
+} 
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-20px);}
+  60% {transform: translateY(-10px);}
+} 
+
+
+
+/* 
+=======
+quiz
+=======
+ */
+
+p.question {
+  font-family: Arial, sans-serif;
+	  font-size:20px;
+  color: #2E2E2E;
+  margin-bottom:0px;
+}
+
+h2.quizHeader {
+  font-family: Arial, sans-serif;
+  font-weight:normal;
+  font-size:25px;
+  line-height: 27px;
+  margin: 24px 0 12px 0;
+  padding: 0 0 4px 0;
+  border-bottom: 1px solid #a2a2a2;
+}
+
+h2.quizScore{
+  font-family: Arial, sans-serif;
+  font-size:25px;
+}
+
+div.quizAnswers{
+  font-family: Arial, sans-serif;
+  font-size:16px;
+  color: #424242;
+  padding: 4px 0 4px 0;
+}
+
+label {
+  font-family: Arial, sans-serif;
+  font-size:14px;
+  color: #424242;
+  vertical-align:top;
+}
+
+input.answer[type="radio"] {
+  margin-bottom: 10px;
+}
+
+input.quizSubmit[type="submit"] {
+  -webkit-background-clip: border-box;
+  -webkit-background-origin: padding-box;
+  -webkit-background-size: auto;
+  -webkit-transition-delay: 0s, 0s;
+  -webkit-transition-duration: 0.2s, 0.2s;
+  -webkit-transition-property: color, background-color;
+  -webkit-transition-timing-function: ease, ease;
+  box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 5px 0px;
+  color: #ffffff;
+  background-color: #c30b0a;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  text-transform:uppercase;
+  height:35px;
+  width:85px;
+  border: 1px solid #5E5E5E;
+  border-radius:5px;
+  
+ }
+
+input.quizSubmit[type="submit"]:hover {
+  color: #ffffff;
+  background: #680f11;
+  text-decoration: none;
+}
+
+table {
+  background-color: #F2F2F2;
+	  border:1px solid #BDBDBD;
+  border-radius:5px;
+  padding:10px;
+  padding-left:25px;
+  box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 1px 0px;
+}
+
+th {
+  
+}
+
+tr {
+  
+}
+
+td {
+
+}
+
+.submitter {
+	  width:85px;
+}
+
+.hide {
+	  display:none;
+}
+
+
+/*SFS light red = #c30b0a;
+SFS dark red = #9f2026; */
+
