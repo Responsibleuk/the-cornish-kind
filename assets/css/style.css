@@ -1173,3 +1173,85 @@ td {
 /*SFS light red = #c30b0a;
 SFS dark red = #9f2026; */
 
+/* awareness */
+
+/* awareness image with text over */
+#awareness-image-container {
+  background-color: white;       
+  padding-left: 25px;
+  padding-right: 70px;
+  }
+
+.awareness-intro { 
+  position: relative; 
+  width: 100%; 
+}
+
+.awareness-intro-h { 
+  position: absolute; 
+  top: 200px; 
+  left: 30px; 
+  width: 100%; 
+}
+
+.awareness-intro-h h2 { 
+  color: white; 
+  /* font: bold 24px/45px Helvetica, Sans-Serif;  */
+  letter-spacing: 1px;  
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px; 
+}
+
+/* awareness introduction image caption */
+
+#awareness-intro-image {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  width: 80vw;
+  height: auto;
+}
+
+#awareness-intro-image-caption {
+  align-self: flex-start;
+  padding-left: 1em;
+  margin-left: 1em;
+  width: 40vw;
+  padding-right: 10px;
+}
+
+/* awareness section */
+
+.flex-container {
+display: flex;
+justify-content: flex-start;
+flex-direction: row;
+background-color: white;       
+padding-left: 60px;
+}
+      
+.awareness-image {
+width: 24vw;
+margin-bottom: 0;
+}
+      
+.awareness-figure {
+background-color: white;
+display: flex;
+flex-flow: column;
+width: 24vw;
+/* padding-left: 10px;
+padding-right: 10px; */
+}
+
+.awareness-caption {
+align-self: flex-start;
+text-align: center;
+border-bottom: 2px solid #0C3C60;
+font-size: 100%;
+width: 24vw;
+}
+
+.more-info {
+  text-decoration: none;
+}
