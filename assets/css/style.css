@@ -69,7 +69,7 @@ Global Styles
 }
 body {
   font-family: var(--ff-secondary);
-  background: var(--clr-grey-10);
+  background: white;
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
@@ -575,9 +575,11 @@ Footer
 #footer-container {
     background-color:#0C3C60;
     margin-top: 10px;
+    margin-bottom: -50px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
+    position: sticky;
     }
     
     .emailSignup {
@@ -1175,32 +1177,6 @@ SFS dark red = #9f2026; */
 
 /* awareness */
 
-/* awareness image with text over */
-#awareness-image-container {
-  background-color: white;       
-  padding-left: 25px;
-  padding-right: 70px;
-  }
-
-.awareness-intro { 
-  position: relative; 
-  width: 100%; 
-}
-
-.awareness-intro-h { 
-  position: absolute; 
-  top: 200px; 
-  left: 30px; 
-  width: 100%; 
-}
-
-.awareness-intro-h h2 { 
-  color: white; 
-  /* font: bold 24px/45px Helvetica, Sans-Serif;  */
-  letter-spacing: 1px;  
-  background: rgba(0, 0, 0, 0.7);
-  padding: 10px; 
-}
 
 /* awareness introduction image caption */
 
@@ -1216,7 +1192,7 @@ SFS dark red = #9f2026; */
   align-self: flex-start;
   padding-left: 1em;
   margin-left: 1em;
-  width: 40vw;
+  width: 25vw;
   padding-right: 10px;
 }
 
@@ -1227,19 +1203,22 @@ display: flex;
 justify-content: flex-start;
 flex-direction: row;
 background-color: white;       
-padding-left: 60px;
+padding-left: 9.5vw;
 }
       
 .awareness-image {
-width: 24vw;
-margin-bottom: 0;
+width: 25vw;
+margin-bottom: 2vw;
 }
       
 .awareness-figure {
 background-color: white;
+border: 2px solid lightslategrey;
 display: flex;
 flex-flow: column;
-width: 24vw;
+width: 25vw;
+margin: 1vw;
+padding: 1vw;
 /* padding-left: 10px;
 padding-right: 10px; */
 }
@@ -1247,9 +1226,8 @@ padding-right: 10px; */
 .awareness-caption {
 align-self: flex-start;
 text-align: center;
-border-bottom: 2px solid #0C3C60;
 font-size: 100%;
-width: 24vw;
+width: 22.5vw;
 }
 
 .more-info {
