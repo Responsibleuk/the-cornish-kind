@@ -1,15 +1,16 @@
 body {
-    color: #fff;
+    color: #0C3C60;
 }
 
 .choice-container {
     display: flex;
     margin-bottom: 0.8rem;
-    width: 100%;
+    margin-left: 25vh;
+    width: 50vh;
     border-radius: 4px;
-    background: rgb(18, 93, 255);
+    background: #0C3C60;
     font-size: 3rem;
-    min-width: 80rem;
+    min-width: 50rem;
 }
 
 .choice-container:hover {
